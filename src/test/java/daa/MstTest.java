@@ -1,0 +1,3 @@
+package daa;
+import daa.graph.*;import daa.algorithms.*;import org.junit.jupiter.api.Test;import static org.junit.jupiter.api.Assertions.*;
+class MstTest {@Test void kruskalAndPrimAgree(){Graph g=new Graph(4,false);g.addEdge(0,1,4);g.addEdge(0,2,1);g.addEdge(2,1,2);g.addEdge(1,3,1);g.addEdge(2,3,5);assertEquals(4,MstAlgorithms.kruskal(g).totalWeight());assertEquals(MstAlgorithms.kruskal(g).totalWeight(),MstAlgorithms.prim(g).totalWeight());assertEquals(3,MstAlgorithms.prim(g).selectedEdges().size());}@Test void disconnectedReturnsForest(){Graph g=new Graph(3,false);g.addEdge(0,1,7);assertEquals(2,MstAlgorithms.kruskal(g).components());assertEquals(2,MstAlgorithms.prim(g).components());}}
